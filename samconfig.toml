@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "cite-makor"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-tc7sj5hpfp5h"
+s3_prefix = "cite-makor"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+

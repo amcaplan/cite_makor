@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SAM Template for cite_makor
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  CiteMekorotFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: cite_makor/
+      Handler: app.lambda_handler
+      Runtime: ruby2.7
+      Timeout: 60
+      Environment:
+        Variables:
+          CLOUDINARY_URL: blank
+          TWITTER_ACCESS_TOKEN: blank
+          TWITTER_ACCESS_TOKEN_SECRET: blank
+          TWITTER_CONSUMER_KEY: blank
+          TWITTER_CONSUMER_SECRET: blank
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  CiteMekorotFunction:
+    Description: "Cite Mekorot Lambda Function ARN"
+    Value: !GetAtt CiteMekorotFunction.Arn
+  CiteMekorotFunctionIamRole:
+    Description: "Implicit IAM Role created for Cite Mekorot function"
+    Value: !GetAtt CiteMekorotFunctionRole.Arn
