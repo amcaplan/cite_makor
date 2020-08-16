@@ -5,7 +5,7 @@ module CiteMakor
     end
 
     def ref
-      tweet_text.strip.split(' ').reject { |i| i.match?(/(@citemakor|please|cite|for|me)/i) }.join(' ')
+      tweet_text.strip.split(' ').reject { |i| i.match?(/\A(@citemakor|please|cite|for|me)\z/i) }.join(' ')
     end
 
     private
