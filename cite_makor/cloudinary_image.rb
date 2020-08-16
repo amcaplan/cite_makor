@@ -52,7 +52,7 @@ module CiteMakor
       Cloudinary::Utils.cloudinary_url(
         public_id,
         type: 'text',
-        border: '5px_solid_white',
+        border: '10px_solid_white',
         background: 'white',
         fetch_format: 'webp',
         quality: 'auto'
