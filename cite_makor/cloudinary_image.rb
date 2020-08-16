@@ -30,7 +30,12 @@ module CiteMakor
     attr_reader :text
 
     def text_portions
-      text.each_line.each_slice(20).map { |slice| slice.join("\n") }
+      portions = text.each_line.each_slice(20).map { |slice| slice.join("\n") }
+      if portions.last.lines.size < 3
+        last, next_last = portions.pop, portions.pop
+        portions << [next_last, last].join("\n")
+      end
+      portions
     end
 
     def with_public_id(text_portion)
