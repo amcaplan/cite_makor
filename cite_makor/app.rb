@@ -13,7 +13,7 @@ def process_mention(mention, client:)
     text = fetcher.sefaria_text
     CiteMakor::CloudinaryImage.new(text).with_image_files do |files|
       client.update_with_media(<<~TWEET_TEXT, files, in_reply_to_status: mention)
-        Here's your citation!
+        @#{mention.user.screen_name} Here's your citation!
         #{fetcher.formatted_ref}
         #{fetcher.html_url}
       TWEET_TEXT
@@ -45,7 +45,7 @@ def run
 
   since_id = get_latest_tweet.to_h.dig(:item, "id")
   since_id = since_id.to_i if since_id # leave nil if it's nil, otherwise convert number to int
-  tweets = client.mentions_timeline({ count: 200, trim_user: true, since_id: since_id }.compact)
+  tweets = client.mentions_timeline({ count: 200, since_id: since_id }.compact)
   return if tweets.empty?
 
   queue = Thread::SizedQueue.new(50)
