@@ -5,13 +5,14 @@ require 'rest-client'
 
 module CiteMakor
   class FetchSefariaText
-    def initialize(ref)
+    def initialize(ref, lang)
       @ref = ref
+      @lang = lang
     end
 
     def sefaria_text
-      if response_content[lang]
-        sefaria_text = Array(response_content[lang]).join(" ")
+      if response_text
+        sefaria_text = Array(response_text).join(" ")
         text = CiteMakor::Utils.word_wrap(sefaria_text.gsub(/<.*?>/,''))
         if text.lines.size > 78
           raise CiteMakor::Errors::TextTooLong.new("You requested a #{sefaria_text.length}-character text (#{formatted_ref}), please ask for something shorter!")
@@ -38,12 +39,17 @@ module CiteMakor
       sefaria_response.code
     end
 
+    def response_text
+      keys = lang == 'he' ? %w(he text) : %w(text he)
+      response_content.values_at(*keys).find { |text| !text.empty? }
+    end
+
     def response_content
       JSON.parse(sefaria_response.body)
     end
 
     def lang
-      ref.match?(/[א-ת]/) ? 'he' : 'text'
+      @lang ||= ref.match?(/[א-ת]/) ? 'he' : 'en'
     end
 
     def sefaria_response

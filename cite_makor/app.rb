@@ -8,8 +8,8 @@ require 'aws-sdk-dynamodb'
 
 def process_mention(mention, client:)
   begin
-    ref = CiteMakor::TweetParser.new(mention.text).ref
-    fetcher = CiteMakor::FetchSefariaText.new(ref)
+    parser = CiteMakor::TweetParser.new(mention.text)
+    fetcher = CiteMakor::FetchSefariaText.new(parser.ref, parser.lang)
     text = fetcher.sefaria_text
     CiteMakor::CloudinaryImage.new(text).with_image_files do |files|
       client.update_with_media(<<~TWEET_TEXT, files, in_reply_to_status: mention)
