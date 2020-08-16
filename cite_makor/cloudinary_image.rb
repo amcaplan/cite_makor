@@ -41,7 +41,7 @@ module CiteMakor
     def with_public_id(text_portion)
       image = Cloudinary::Uploader.text(
         text_portion,
-        font_family: 'Times New Roman',
+        font_family: font_family,
         font_size: 42,
         background: 'white'
       )
@@ -51,6 +51,10 @@ module CiteMakor
       raise CiteMakor::Errors::CloudinaryError.new("Something went wrong, please try again later.")
     ensure
       Cloudinary::Uploader.destroy(image["public_id"], type: 'text') if image
+    end
+
+    def font_family
+      text.match?(/[א-ת]/) ? 'Frank Ruhl Libre' : 'Times New Roman'
     end
 
     def image_url(public_id)
