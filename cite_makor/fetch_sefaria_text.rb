@@ -41,7 +41,7 @@ module CiteMakor
 
     def response_text
       keys = lang == 'he' ? %w(he text) : %w(text he)
-      response_content.values_at(*keys).find { |text| !text.empty? }
+      response_content.values_at(*keys).find { |text| text && !text.empty? }
     end
 
     def response_content
