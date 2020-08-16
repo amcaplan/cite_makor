@@ -19,7 +19,7 @@ def process_mention(mention, client:)
       TWEET_TEXT
     end
   rescue CiteMakor::Errors::Error => e
-    client.update(e.message, in_reply_to_status: mention)
+    client.update("@#{mention.user.screen_name} #{e.message}", in_reply_to_status: mention)
   end
 end
 
