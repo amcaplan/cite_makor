@@ -18,7 +18,7 @@ module CiteMakor
           raise CiteMakor::Errors::TextTooLong.new("You requested a #{sefaria_text.length}-character text (#{formatted_ref}), please ask for something shorter!")
         end
         closer = "- #{formatted_ref}".rjust(CiteMakor::Utils.line_length(text.each_line.first) * 1.2)
-        text << "\n\n" << closer
+        text << "\n" << closer
       else
         raise CiteMakor::Errors::InvalidRef.new("Sorry, I couldn't figure out what \"#{ref}\" refers to, please try rephrasing.")
       end
