@@ -4,7 +4,7 @@ describe CiteMakor::TweetParser do
   subject { described_class.new(text) }
 
   before do
-    allow(CiteMakor::Logger).to receive(:info)
+    allow(CiteMakor::CustomLogger).to receive(:info)
   end
 
   [

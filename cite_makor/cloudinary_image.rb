@@ -1,5 +1,6 @@
 require 'cloudinary'
 require 'open-uri'
+require __dir__ + '/custom_logger'
 
 module CiteMakor
   class CloudinaryImage
@@ -47,8 +48,8 @@ module CiteMakor
       )
       yield image["public_id"]
     rescue CloudinaryException => e
-      p e
-      raise CiteMakor::Errors::CloudinaryError.new("Something went wrong, please try again later.")
+      CustomLogger.error("Cloudinary error: #{e.inspect}")
+      raise CiteMakor::Errors::CloudinaryError.new("Something went wrong when generating your image, please try again later.")
     ensure
       Cloudinary::Uploader.destroy(image["public_id"], type: 'text') if image
     end

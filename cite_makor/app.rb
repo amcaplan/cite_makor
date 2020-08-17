@@ -5,7 +5,6 @@ require 'aws-sdk-dynamodb'
 require __dir__ + '/cloudinary_image'
 require __dir__ + '/errors'
 require __dir__ + '/fetch_sefaria_text'
-require __dir__ + '/logger'
 require __dir__ + '/tweet_parser'
 
 def process_mention(mention, client:)

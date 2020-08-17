@@ -1,4 +1,4 @@
-require __dir__ + '/logger'
+require __dir__ + '/custom_logger'
 
 module CiteMakor
   class TweetParser
@@ -22,7 +22,7 @@ module CiteMakor
       @ref_text ||=
         begin
           if relevant_text.any? { |word| word.start_with?('@') }
-            CiteMakor::Logger.info "Mentioned other users after me, this is probably a reply, not answering. Tweet text:\n#{tweet_text}"
+            CiteMakor::CustomLogger.info "Mentioned other users after me, this is probably a reply, not answering. Tweet text:\n#{tweet_text}"
             []
           else
             text = relevant_text.reject { |i| i.match?(/\A(please|cite|for|me|https:\/\/t\.co\/\w+)\z/i) }
