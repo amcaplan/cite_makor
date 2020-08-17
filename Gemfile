@@ -6,6 +6,7 @@ gem "twitter"
 gem "cloudinary"
 
 group :test do
+  gem "rspec"
   gem "test-unit"
   gem "mocha"
 end

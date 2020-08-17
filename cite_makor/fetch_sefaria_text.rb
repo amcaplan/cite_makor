@@ -1,7 +1,7 @@
 require 'json'
-require 'utils'
-require 'errors'
 require 'rest-client'
+require __dir__ + '/utils'
+require __dir__ + '/errors'
 
 module CiteMakor
   class FetchSefariaText
