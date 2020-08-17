@@ -34,7 +34,9 @@ module CiteMakor
     def relevant_text
       @relevant_text ||=
         begin
-          match = tweet_text.strip.gsub(/\s+/, ' ').match(/@CiteMakor(\splease)?\scite(\sfor)?(\sme)?\s(?<ref_text>[^\n]+)/)
+          match = tweet_text.each_line.lazy.map { |line|
+            line.strip.gsub(/\s+/, ' ').match(/@CiteMakor(\splease)?\scite(\sfor)?(\sme)?\s(?<ref_text>.+)/i)
+          }.find { |i| !i.nil? }
           (match&.[](:ref_text) || "").split(' ')
         end
     end
