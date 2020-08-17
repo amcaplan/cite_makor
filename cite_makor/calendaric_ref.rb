@@ -7,6 +7,7 @@ module CiteMakor
 
     calendar_response = RestClient.get(CALENDARS_API_URL)
     calendar_items = JSON.parse(calendar_response).fetch("calendar_items")
+    calendar_items.find { |item| item["title"]["en"] == "Daf Yomi" }["ref"] << "-b"
     CALENDAR_ITEMS = calendar_items
     item_titles = CALENDAR_ITEMS.flat_map { |item| item["title"].values }
     CALENDAR_ITEMS_REGEX = /(#{item_titles.join('|')})/i

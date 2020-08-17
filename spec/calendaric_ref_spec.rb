@@ -11,7 +11,7 @@ describe CiteMakor::CalendaricRef do
 
   [
     ["Genesis 1:1", "Genesis 1:1"],
-    ["daf yomi", "Eruvin 8a"],
+    ["daf yomi", "Eruvin 8a-b"],
     ["משנה יומית", "Mishnah Kelim 2:5-6"],
     ["929", "Zephaniah 2"],
   ].each do |ref, interpretation|
