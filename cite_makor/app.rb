@@ -2,6 +2,7 @@ require 'json'
 require 'twitter'
 require 'aws-sdk-dynamodb'
 
+require __dir__ + '/calendaric_ref'
 require __dir__ + '/cloudinary_image'
 require __dir__ + '/errors'
 require __dir__ + '/fetch_sefaria_text'
@@ -10,9 +11,9 @@ require __dir__ + '/tweet_parser'
 def process_mention(mention, client:)
   begin
     parser = CiteMakor::TweetParser.new(mention.text)
-    fetcher = CiteMakor::FetchSefariaText.new(parser.ref, parser.lang)
-    text = fetcher.sefaria_text
-    CiteMakor::CloudinaryImage.new(text).with_image_files do |files|
+    ref = CiteMakor::CalendaricRef.replace_calendar_item_ref(parser.ref)
+    fetcher = CiteMakor::FetchSefariaText.new(ref, parser.lang)
+    CiteMakor::CloudinaryImage.new(fetcher.sefaria_text).with_image_files do |files|
       client.update_with_media(<<~TWEET_TEXT, files, in_reply_to_status: mention)
         @#{mention.user.screen_name} Here's your citation!
         #{fetcher.formatted_ref}

@@ -1,0 +1,104 @@
+---
+date: '2020-08-17'
+timezone: America/Halifax
+calendar_items:
+- title:
+    en: Parashat Hashavua
+    he: פרשת השבוע
+  displayValue:
+    en: Shoftim
+    he: שופטים
+  url: Deuteronomy.16.18-21.9
+  ref: Deuteronomy 16:18-21:9
+  order: 1
+  category: Tanakh
+  extraDetails:
+    aliyot:
+    - Deuteronomy 16:18-17:13
+    - Deuteronomy 17:14-17:20
+    - Deuteronomy 18:1-18:5
+    - Deuteronomy 18:6-18:13
+    - Deuteronomy 18:14-19:13
+    - Deuteronomy 19:14-20:9
+    - Deuteronomy 20:10-21:9
+    - Deuteronomy 21:7-21:9
+- title:
+    en: Haftarah
+    he: הפטרה
+  displayValue:
+    en: Isaiah 51:12-52:12
+    he: ישעיהו נ״א:י״ב-נ״ב:י״ב
+  url: Isaiah.51.12-52.12
+  ref: Isaiah 51:12-52:12
+  order: 2
+  category: Tanakh
+- title:
+    en: Daf Yomi
+    he: דף יומי
+  displayValue:
+    en: Eruvin 8
+    he: עירובין ח׳
+  url: Eruvin.8a
+  ref: Eruvin 8a
+  order: 3
+  category: Talmud
+- title:
+    en: '929'
+    he: '929'
+  displayValue:
+    en: Zephaniah 2 (547)
+    he: צפניה ב׳ (547)
+  url: Zephaniah.2
+  ref: Zephaniah 2
+  order: 4
+  category: Tanakh
+- title:
+    en: Daily Mishnah
+    he: משנה יומית
+  displayValue:
+    en: Mishnah Kelim 2:5-6
+    he: משנה כלים ב׳:ה׳-ו׳
+  url: Mishnah_Kelim.2.5-6
+  ref: Mishnah Kelim 2:5-6
+  order: 5
+  category: Mishnah
+- title:
+    en: Daily Rambam
+    he: הרמב"ם היומי
+  displayValue:
+    en: Foreign Worship and Customs of the Nations 3
+    he: הלכות עבודה זרה וחוקות הגויים ג׳
+  url: Mishneh_Torah,_Foreign_Worship_and_Customs_of_the_Nations.3
+  ref: Mishneh Torah, Foreign Worship and Customs of the Nations 3
+  order: 6
+  category: Halakhah
+- title:
+    en: Daily Rambam (3)
+    he: הרמב"ם היומי (3)
+  displayValue:
+    en: Sabbath 6-8
+    he: הלכות שבת ו׳-ח׳
+  url: Mishneh_Torah,_Sabbath.6-8
+  ref: Mishneh Torah, Sabbath 6-8
+  order: 7
+  category: Halakhah
+- title:
+    en: Daf a Week
+    he: דף השבוע
+  displayValue:
+    en: Yevamot 14
+    he: יבמות י״ד
+  url: Yevamot.14a
+  ref: Yevamot 14a
+  order: 8
+  category: Talmud
+- title:
+    en: Halakhah Yomit
+    he: הלכה יומית
+  displayValue:
+    en: Kitzur Shulchan Aruch 177:2-6
+    he: קיצור שלחן ערוך קע״ז:ב׳-ו׳
+  url: Kitzur_Shulchan_Aruch.177.2-6
+  ref: Kitzur Shulchan Aruch 177:2-6
+  order: 9
+  category: Halakhah

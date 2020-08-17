@@ -1,5 +1,3 @@
-# require 'spec_helper'
-
 describe CiteMakor::TweetParser do
   subject { described_class.new(text) }
 
