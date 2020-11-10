@@ -47,7 +47,7 @@ def run
 
   since_id = get_latest_tweet.to_h.dig(:item, "id")
   since_id = since_id.to_i if since_id # leave nil if it's nil, otherwise convert number to int
-  tweets = client.mentions_timeline({ count: 200, since_id: since_id }.compact)
+  tweets = client.mentions_timeline({ count: 200, since_id: since_id, tweet_mode: :extended }.compact)
   return if tweets.empty?
 
   queue = Thread::SizedQueue.new(50)
