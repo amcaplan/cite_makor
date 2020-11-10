@@ -57,7 +57,7 @@ module CiteMakor
         begin
           url = "https://www.sefaria.org/api/texts/#{ERB::Util.url_encode(ref)}?context=0"
           RestClient.get(url)
-        rescue RestClient::ExceptionWithResponse
+        rescue RestClient::ExceptionWithResponse => e
           CustomLogger.error("Sefaria error fetching #{ref}: #{e.inspect}")
           raise CiteMakor::Errors::SefariaError.new("There was a problem fetching your text (#{ref}), please try again later.")
         end
